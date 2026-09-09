@@ -1,0 +1,6 @@
+ALOTAR Master Mobile PWA
+Version: V1
+Estado: PROTOTIPO INDEPENDIENTE
+Backend de producción: NO CONECTADO
+Escrituras: NO
+Uso: prueba de experiencia móvil / PWA

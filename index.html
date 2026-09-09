@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#070b12" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="ALOTAR Master" />
+<title>ALOTAR Master</title>
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="apple-touch-icon" href="./icons/icon-180.png" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="application-name" content="ALOTAR Master" />
+
+<style>
+:root{
+  --bg:#070b12;--panel:#0d1522;--panel2:#111a29;--line:#1f2a3a;--text:#f7f9fc;--muted:#8fa3bf;
+  --gold:#d4af37;--gold2:#f9e27d;--cyan:#38bdf8;--green:#22c55e;--red:#fb7185;--amber:#f59e0b;
+  --shadow:0 20px 54px rgba(0,0,0,.38);--radius:22px;
+}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;background:radial-gradient(circle at 95% 0,rgba(212,175,55,.11),transparent 26%),radial-gradient(circle at -8% 34%,rgba(56,189,248,.06),transparent 28%),var(--bg);padding-bottom:calc(102px + env(safe-area-inset-bottom))}
+button,input{font:inherit}button{color:inherit;-webkit-tap-highlight-color:transparent}.app{width:min(100%,760px);margin:0 auto;min-height:100vh}.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:linear-gradient(180deg,rgba(7,11,18,.985),rgba(7,11,18,.88));backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,.11)}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}.logo{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;color:#171108;font-weight:1000;background:linear-gradient(145deg,#fff8ca,#e5bf52 42%,#8d6511 80%);border:1px solid #f6df7d;box-shadow:inset 0 1px 0 rgba(255,255,255,.78),0 0 20px rgba(212,175,55,.19)}.brandTitle{font-size:14px;font-weight:950;letter-spacing:.12em;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.brandSub{font-size:9px;color:var(--muted);letter-spacing:.14em;margin-top:2px}.profileBtn{border:1px solid rgba(212,175,55,.28);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.015));border-radius:999px;min-height:40px;padding:0 10px 0 5px;display:flex;align-items:center;gap:8px}.profileAvatar{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#fff7c9,#c69e31);color:#16110a;font-size:11px;font-weight:950}.profileText{text-align:left;line-height:1.05}.profileName{font-size:10px;font-weight:900}.profileRole{font-size:8px;color:var(--muted);margin-top:3px}
+.content{padding:14px 14px 8px}.screen{display:none;animation:screenIn .2s ease}.screen.active{display:block}@keyframes screenIn{from{opacity:.35;transform:translateY(6px)}to{opacity:1;transform:none}}
+.hero{position:relative;overflow:hidden;padding:16px 17px;border-radius:20px;background:linear-gradient(145deg,rgba(56,189,248,.075),rgba(212,175,55,.07) 62%,rgba(255,255,255,.015));border:1px solid rgba(212,175,55,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}.hero:after{content:"";position:absolute;right:-40px;top:-45px;width:145px;height:145px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.17),transparent 68%)}.eyebrow{font-size:9px;letter-spacing:.18em;color:var(--gold);font-weight:900;text-transform:uppercase}.heroTop{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.hero h1{font-size:26px;line-height:1.02;margin:6px 0 0;letter-spacing:-.035em}.hero p{margin:7px 0 0;color:var(--muted);font-size:11px;line-height:1.45;max-width:430px}.statusPill{position:relative;z-index:1;flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;padding:7px 9px;border-radius:999px;border:1px solid rgba(34,197,94,.24);background:rgba(34,197,94,.07);color:#a7f3d0;font-size:9px;font-weight:850}.dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 10px rgba(34,197,94,.75)}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}.metric{min-width:0;padding:12px 10px;border-radius:17px;background:linear-gradient(180deg,rgba(255,255,255,.043),rgba(255,255,255,.012));border:1px solid rgba(212,175,55,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}.metricIcon{font-size:15px;line-height:1}.metricValue{font-size:23px;font-weight:950;line-height:1;margin-top:10px}.metricLabel{font-size:8px;letter-spacing:.055em;color:#aab7c9;font-weight:850;text-transform:uppercase;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:20px 2px 10px}.sectionHead h2{font-size:18px;margin:0;letter-spacing:-.02em}.sectionHead small{font-size:10px;color:var(--muted)}.activity,.companyCard,.saasCard,.menuCard,.modulePanel{border:1px solid rgba(212,175,55,.15);background:linear-gradient(180deg,rgba(255,255,255,.033),rgba(255,255,255,.01));border-radius:19px;box-shadow:inset 0 1px 0 rgba(255,255,255,.028)}.activityItem{display:flex;align-items:center;gap:11px;padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.055)}.activityItem:last-child{border-bottom:0}.activityIcon{width:36px;height:36px;flex:0 0 36px;border-radius:12px;display:grid;place-items:center;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.16);font-size:15px}.activityMain{min-width:0;flex:1}.activityTitle{font-size:12px;font-weight:850;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.activitySub{font-size:10px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chev{font-size:20px;color:var(--gold)}
+.searchBox{position:relative;margin:8px 0 10px}.searchBox input{width:100%;height:46px;border-radius:15px;border:1px solid rgba(212,175,55,.18);background:#08101b;color:var(--text);padding:0 14px 0 42px;outline:none}.searchBox input:focus{border-color:rgba(212,175,55,.55);box-shadow:0 0 0 3px rgba(212,175,55,.07)}.searchIcon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted)}.filterRow{display:flex;gap:7px;overflow:auto;padding:0 0 9px;scrollbar-width:none}.filterRow::-webkit-scrollbar{display:none}.chip{flex:0 0 auto;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid rgba(212,175,55,.16);background:rgba(255,255,255,.022);font-size:10px;font-weight:850}.chip.active{color:#171109;border-color:#f3d56a;background:linear-gradient(180deg,#fff4b5,#d8b74f 52%,#89600f)}
+.companyList{display:grid;gap:10px}.companyCard{padding:14px;cursor:pointer}.companyTop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.companyName{font-size:14px;font-weight:900}.companyEmail{font-size:10px;color:var(--muted);margin-top:4px;word-break:break-word}.status{display:inline-flex;align-items:center;justify-content:center;min-height:26px;padding:0 8px;border-radius:999px;font-size:8px;font-weight:950;letter-spacing:.06em;border:1px solid currentColor}.activeStatus{color:#34d399;background:rgba(52,211,153,.07)}.trialStatus{color:#38bdf8;background:rgba(56,189,248,.07)}.expiredStatus{color:#fb7185;background:rgba(251,113,133,.07)}.companyMeta{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}.metaCell{padding:10px;border-radius:13px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.055)}.metaLabel{font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.metaValue{font-size:11px;font-weight:850;margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.saasGrid{display:grid;gap:10px}.saasCard{padding:15px}.saasHead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.planName{font-size:15px;font-weight:950}.planPrice{font-size:12px;font-weight:900;color:var(--gold2)}.progress{height:6px;background:#07101a;border-radius:999px;overflow:hidden;margin-top:11px}.progress>span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--gold2))}.usage{display:flex;justify-content:space-between;gap:10px;margin-top:7px;font-size:9px;color:var(--muted)}
+.menuGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.menuCard{min-height:112px;padding:14px;cursor:pointer}.menuIcon{font-size:20px}.menuTitle{margin-top:13px;font-size:13px;font-weight:900}.menuText{margin-top:5px;color:var(--muted);font-size:9px;line-height:1.45}.modulePanel{padding:15px}.moduleStatGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:12px}.moduleStat{padding:12px;border-radius:14px;background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.055)}.moduleStat b{display:block;font-size:18px}.moduleStat span{display:block;margin-top:3px;font-size:9px;color:var(--muted)}.backBtn{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(212,175,55,.17);background:rgba(255,255,255,.025);border-radius:999px;min-height:38px;padding:0 12px;font-size:10px;font-weight:850;margin-bottom:12px}
+.readOnlyBanner{display:flex;align-items:flex-start;gap:9px;margin-top:13px;padding:11px 12px;border-radius:15px;border:1px solid rgba(56,189,248,.18);background:rgba(56,189,248,.05);color:#b9dff3;font-size:9px;line-height:1.48}
+.bottomNav{position:fixed;z-index:60;left:50%;transform:translateX(-50%);bottom:calc(8px + env(safe-area-inset-bottom));width:min(calc(100% - 20px),720px);padding:7px;border:1px solid rgba(212,175,55,.15);border-radius:24px;background:rgba(8,13,22,.92);backdrop-filter:blur(24px);box-shadow:0 18px 48px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.035)}.bottomNavInner{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.navBtn{position:relative;min-height:56px;border:0;border-radius:18px;background:transparent;color:#6f819a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:8.5px;font-weight:850}.navIcon{font-size:18px;line-height:1}.navBtn.active{color:var(--gold2);background:linear-gradient(180deg,rgba(212,175,55,.11),rgba(212,175,55,.045));box-shadow:inset 0 0 0 1px rgba(212,175,55,.08)}.navBtn.active:before{content:"";position:absolute;top:4px;width:24px;height:2px;border-radius:999px;background:var(--gold2);box-shadow:0 0 10px rgba(212,175,55,.65)}
+.sheetBackdrop{position:fixed;inset:0;z-index:100;display:none;background:rgba(0,0,0,.68);backdrop-filter:blur(8px);align-items:flex-end;justify-content:center}.sheetBackdrop.open{display:flex}.sheet{width:min(100%,760px);max-height:88vh;overflow:auto;border-radius:25px 25px 0 0;background:#0a111d;border:1px solid rgba(212,175,55,.22);border-bottom:0;padding:11px 15px calc(24px + env(safe-area-inset-bottom));box-shadow:0 -25px 60px rgba(0,0,0,.5)}.handle{width:42px;height:4px;border-radius:999px;background:#4a566a;margin:0 auto 14px}.sheetHead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.closeBtn{width:38px;height:38px;border-radius:13px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);font-size:14px}.detailGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px}.detailRow{padding:11px;border-radius:13px;background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.055)}.detailRow small{display:block;color:var(--muted);font-size:8px;margin-bottom:4px}.detailRow b{font-size:11px}.actionGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}.actionBtn{min-height:46px;border-radius:14px;border:1px solid rgba(212,175,55,.2);background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.014));font-size:10px;font-weight:850}
+.profileSheet .profileCard{padding:13px;border-radius:16px;background:rgba(212,175,55,.055);border:1px solid rgba(212,175,55,.15);margin-bottom:10px}.profileOption{width:100%;min-height:48px;border:0;border-bottom:1px solid rgba(255,255,255,.055);background:transparent;text-align:left;padding:0 4px;font-size:11px}.profileOption:last-child{border-bottom:0}.demoTag{display:inline-flex;align-items:center;gap:5px;color:#fcd34d;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.22);padding:5px 8px;border-radius:999px;font-size:8px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:390px){.metrics{grid-template-columns:repeat(2,1fr)}.metric{padding:11px}.profileText{display:none}.profileBtn{padding-right:5px}.heroTop{display:block}.statusPill{margin-top:10px}.bottomNav{width:calc(100% - 14px)}}
+@media (min-width:700px){.content{padding:20px 22px}.companyList{grid-template-columns:repeat(2,1fr)}.menuGrid{grid-template-columns:repeat(4,1fr)}.metrics{gap:10px}}
+
+/* =====================================================
+   ALOTAR MASTER MOBILE · V2.1
+   iPhone small-screen legibility + safe-area refinement
+   Visual-only. Sin conexión ni escrituras de producción.
+===================================================== */
+:root{
+  --tap:46px;
+}
+
+/* Stable viewport and iOS safe areas */
+body{
+  min-height:100svh;
+  padding-left:env(safe-area-inset-left);
+  padding-right:env(safe-area-inset-right);
+  overscroll-behavior-y:none;
+}
+
+button,
+.companyCard,
+.menuCard,
+.activityItem{
+  touch-action:manipulation;
+}
+
+/* Slightly stronger contrast for real-device readability */
+.brandSub,
+.profileRole,
+.hero p,
+.metricLabel,
+.activitySub,
+.companyEmail,
+.metaLabel,
+.menuText,
+.usage,
+.moduleStat span,
+.detailRow small{
+  color:#9fb0c8;
+}
+
+/* Comfortable interactive targets */
+.profileBtn{min-height:var(--tap)}
+.chip{min-height:40px}
+.backBtn{min-height:44px}
+.closeBtn{width:44px;height:44px}
+.actionBtn{min-height:48px}
+.profileOption{min-height:52px}
+
+/* Compact but more legible bottom navigation */
+.bottomNav{
+  bottom:calc(10px + env(safe-area-inset-bottom));
+  padding:7px 8px;
+}
+.navBtn{
+  min-height:58px;
+  font-size:10px;
+  letter-spacing:.01em;
+}
+.navIcon{font-size:19px}
+
+/* Make fixed navigation never cover the last content */
+.content{
+  padding-bottom:22px;
+}
+
+@media (max-width:430px){
+  .content{padding:12px 12px 12px}
+  .topbar{
+    padding:calc(9px + env(safe-area-inset-top)) 12px 9px;
+  }
+  .logo{width:40px;height:40px}
+  .brandTitle{font-size:15px}
+  .brandSub{font-size:10px}
+  .profileAvatar{width:32px;height:32px;font-size:11px}
+
+  .hero{
+    padding:14px 15px;
+    border-radius:19px;
+  }
+  .eyebrow{font-size:10px}
+  .hero h1{font-size:25px;line-height:1.05;margin-top:5px}
+  .hero p{font-size:12px;line-height:1.42;margin-top:6px}
+  .statusPill{font-size:10px;padding:7px 10px}
+
+  .metrics{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+    margin-top:9px;
+  }
+  .metric{
+    min-height:96px;
+    padding:11px 12px;
+    border-radius:16px;
+  }
+  .metricIcon{font-size:17px}
+  .metricValue{font-size:25px;margin-top:8px}
+  .metricLabel{font-size:9px;margin-top:5px;letter-spacing:.065em}
+
+  .sectionHead{margin:17px 2px 9px}
+  .sectionHead h2{font-size:19px}
+  .sectionHead small{font-size:11px}
+
+  .activityItem{min-height:64px;padding:12px 13px}
+  .activityIcon{width:38px;height:38px;flex-basis:38px;font-size:16px}
+  .activityTitle{font-size:13px}
+  .activitySub{font-size:11px;line-height:1.35}
+  .chev{font-size:22px}
+
+  .readOnlyBanner{font-size:10.5px;line-height:1.5;padding:11px 12px}
+  .searchBox input{height:48px;font-size:13px}
+  .chip{font-size:11px}
+  .companyName{font-size:15px}
+  .companyEmail{font-size:11px}
+  .status{font-size:9px;min-height:28px}
+  .metaLabel{font-size:9px}
+  .metaValue{font-size:12px}
+  .planName{font-size:16px}
+  .planPrice{font-size:13px}
+  .usage{font-size:10px}
+  .menuTitle{font-size:14px}
+  .menuText{font-size:10.5px}
+  .moduleStat b{font-size:20px}
+  .moduleStat span{font-size:10px}
+  .detailRow small{font-size:9px}
+  .detailRow b{font-size:12px}
+
+  body{
+    padding-bottom:calc(108px + env(safe-area-inset-bottom));
+  }
+}
+
+/* Extra tuning for older/smaller iPhones */
+@media (max-width:375px){
+  .topbar{gap:8px}
+  .brand{gap:8px}
+  .logo{width:37px;height:37px;border-radius:12px}
+  .brandTitle{font-size:14px}
+  .brandSub{font-size:9px}
+  .profileText{display:none}
+  .profileBtn{padding:0 5px}
+  .hero h1{font-size:23px}
+  .hero p{font-size:11.5px}
+  .metric{min-height:92px}
+  .metricValue{font-size:24px}
+  .bottomNav{width:calc(100% - 12px)}
+}
+
+/* When installed as a PWA, use the full iOS canvas cleanly */
+@media (display-mode:standalone){
+  body{min-height:100dvh}
+  .topbar{background:rgba(7,11,18,.94)}
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><div class="logo">A</div><div><div class="brandTitle">ALOTAR</div><div class="brandSub">MASTER CONTROL</div></div></div>
+  <button class="profileBtn" id="profileBtn"><span class="profileAvatar">AO</span><span class="profileText"><span class="profileName">Alberto</span><span class="profileRole">Master Admin</span></span></button>
+</header>
+<main class="content">
+  <section class="screen active" data-screen="home">
+    <div class="hero"><div class="heroTop"><div><div class="eyebrow">Control general</div><h1>Buenos días, Alberto</h1><p>Vista ejecutiva del ecosistema ALOTAR.</p></div><div class="statusPill"><span class="dot"></span>Operativo</div></div></div>
+    <div class="metrics">
+      <div class="metric"><div class="metricIcon">🏢</div><div class="metricValue">24</div><div class="metricLabel">Empresas</div></div>
+      <div class="metric"><div class="metricIcon">✅</div><div class="metricValue">18</div><div class="metricLabel">Activas</div></div>
+      <div class="metric"><div class="metricIcon">🧪</div><div class="metricValue">3</div><div class="metricLabel">Trial</div></div>
+      <div class="metric"><div class="metricIcon">⏳</div><div class="metricValue">2</div><div class="metricLabel">Vencen 7d</div></div>
+    </div>
+    <div class="sectionHead"><h2>Actividad reciente</h2><small>Vista demo</small></div>
+    <div class="activity">
+      <div class="activityItem"><div class="activityIcon">💳</div><div class="activityMain"><div class="activityTitle">Flight Training Center</div><div class="activitySub">Suscripción activa · PRO mensual</div></div><div class="chev">›</div></div>
+      <div class="activityItem"><div class="activityIcon">💰</div><div class="activityMain"><div class="activityTitle">Academia Demo</div><div class="activitySub">Pago registrado</div></div><div class="chev">›</div></div>
+      <div class="activityItem"><div class="activityIcon">🛡️</div><div class="activityMain"><div class="activityTitle">Tenant en seguimiento</div><div class="activitySub">Revisión de configuración pendiente</div></div><div class="chev">›</div></div>
+    </div>
+    <div class="readOnlyBanner"><span>🧪</span><span><b>V2.1 independiente.</b> No ejecuta escrituras ni consume producción. Los datos son demostrativos.</span></div>
+  </section>
+
+  <section class="screen" data-screen="companies">
+    <div class="sectionHead" style="margin-top:3px"><div><div class="eyebrow">Empresas</div><h2>Organizaciones</h2></div><span class="demoTag">Demo UI</span></div>
+    <div class="searchBox"><span class="searchIcon">⌕</span><input id="companySearch" placeholder="Buscar empresa o correo" autocomplete="off"></div>
+    <div class="filterRow"><button class="chip active" data-filter="ALL">Todas</button><button class="chip" data-filter="ACTIVE">Activas</button><button class="chip" data-filter="TRIAL">Trial</button><button class="chip" data-filter="EXPIRED">Expiradas</button></div>
+    <div id="companyList" class="companyList"></div>
+  </section>
+
+  <section class="screen" data-screen="saas">
+    <div class="sectionHead" style="margin-top:3px"><div><div class="eyebrow">SaaS</div><h2>Planes y uso</h2></div><span class="demoTag">Demo UI</span></div>
+    <div class="saasGrid">
+      <div class="saasCard"><div class="saasHead"><div><div class="planName">PRO Mensual</div><div class="companyEmail">12 empresas activas</div></div><div class="planPrice">$199K</div></div><div class="progress"><span style="width:68%"></span></div><div class="usage"><span>Uso global</span><span>68%</span></div></div>
+      <div class="saasCard"><div class="saasHead"><div><div class="planName">Business</div><div class="companyEmail">5 empresas activas</div></div><div class="planPrice">$349K</div></div><div class="progress"><span style="width:43%"></span></div><div class="usage"><span>Uso global</span><span>43%</span></div></div>
+      <div class="saasCard"><div class="saasHead"><div><div class="planName">Enterprise</div><div class="companyEmail">1 empresa activa</div></div><div class="planPrice">Custom</div></div><div class="progress"><span style="width:24%"></span></div><div class="usage"><span>Uso global</span><span>24%</span></div></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="more">
+    <div class="sectionHead" style="margin-top:3px"><div><div class="eyebrow">Herramientas</div><h2>Más</h2></div></div>
+    <div class="menuGrid">
+      <div class="menuCard" data-open-module="finance"><div class="menuIcon">💰</div><div class="menuTitle">Finanzas</div><div class="menuText">MRR, ingresos, pagos y deuda.</div></div>
+      <div class="menuCard" data-open-module="reports"><div class="menuIcon">📊</div><div class="menuTitle">Reportes</div><div class="menuText">Indicadores y análisis ejecutivos.</div></div>
+      <div class="menuCard" data-open-module="maintenance"><div class="menuIcon">🛡️</div><div class="menuTitle">Mantenimiento</div><div class="menuText">Configuración y seguimiento de tenants.</div></div>
+      <div class="menuCard" data-open-module="access"><div class="menuIcon">🔗</div><div class="menuTitle">Accesos</div><div class="menuText">Admin, Rental, Academy y Reports.</div></div>
+    </div>
+  </section>
+
+  <section class="screen" data-screen="finance"><button class="backBtn" data-back-more>← Volver</button><div class="modulePanel"><div class="eyebrow">Finanzas</div><h2 style="margin:6px 0 0">Resumen SaaS</h2><div class="moduleStatGrid"><div class="moduleStat"><b>$2.39M</b><span>MRR demo</span></div><div class="moduleStat"><b>18</b><span>Empresas al día</span></div><div class="moduleStat"><b>4</b><span>Pagos pendientes</span></div><div class="moduleStat"><b>2</b><span>Con deuda</span></div></div></div></section>
+  <section class="screen" data-screen="reports"><button class="backBtn" data-back-more>← Volver</button><div class="modulePanel"><div class="eyebrow">Reportes</div><h2 style="margin:6px 0 0">Análisis ejecutivo</h2><p class="companyEmail" style="line-height:1.6">Pantalla independiente preparada para los futuros reportes móviles.</p></div></section>
+  <section class="screen" data-screen="maintenance"><button class="backBtn" data-back-more>← Volver</button><div class="modulePanel"><div class="eyebrow">Mantenimiento</div><h2 style="margin:6px 0 0">Estado de tenants</h2><div class="moduleStatGrid"><div class="moduleStat"><b>24</b><span>Empresas</span></div><div class="moduleStat"><b>3</b><span>Pendientes</span></div><div class="moduleStat"><b>2</b><span>Seguimiento</span></div><div class="moduleStat"><b>1</b><span>Revisión manual</span></div></div></div></section>
+  <section class="screen" data-screen="access"><button class="backBtn" data-back-more>← Volver</button><div class="modulePanel"><div class="eyebrow">Accesos rápidos</div><h2 style="margin:6px 0 12px">Ecosistema ALOTAR</h2><div class="menuGrid"><div class="menuCard"><div class="menuIcon">🧭</div><div class="menuTitle">Admin</div></div><div class="menuCard"><div class="menuIcon">⚙️</div><div class="menuTitle">Admin Config</div></div><div class="menuCard"><div class="menuIcon">🛫</div><div class="menuTitle">Rental</div></div><div class="menuCard"><div class="menuIcon">🎓</div><div class="menuTitle">Academy</div></div></div></div></section>
+</main>
+</div>
+
+<nav class="bottomNav" aria-label="Navegación principal"><div class="bottomNavInner">
+  <button class="navBtn active" data-target="home"><span class="navIcon">⌂</span><span>Inicio</span></button>
+  <button class="navBtn" data-target="companies"><span class="navIcon">🏢</span><span>Empresas</span></button>
+  <button class="navBtn" data-target="saas"><span class="navIcon">💳</span><span>SaaS</span></button>
+  <button class="navBtn" data-target="more"><span class="navIcon">•••</span><span>Más</span></button>
+</div></nav>
+
+<div class="sheetBackdrop" id="companySheet" aria-hidden="true"><div class="sheet"><div class="handle"></div><div class="sheetHead"><div><div class="eyebrow">Detalle de empresa</div><h2 id="sheetCompanyName" style="margin:6px 0 0">Empresa</h2><div id="sheetCompanyEmail" class="companyEmail"></div></div><button class="closeBtn" data-close="companySheet">✕</button></div><div class="detailGrid" id="sheetDetailGrid"></div><div class="actionGrid"><button class="actionBtn">Información</button><button class="actionBtn">Suscripción</button><button class="actionBtn">Pagos</button><button class="actionBtn">Accesos</button></div><div class="readOnlyBanner"><span>🔒</span><span>Acciones deshabilitadas en esta V2.1 de interfaz.</span></div></div></div>
+
+<div class="sheetBackdrop profileSheet" id="profileSheet" aria-hidden="true"><div class="sheet"><div class="handle"></div><div class="sheetHead"><div><div class="eyebrow">Perfil</div><h2 style="margin:6px 0 0">Alberto Otálora</h2><div class="companyEmail">Master Admin · ALOTAR</div></div><button class="closeBtn" data-close="profileSheet">✕</button></div><div class="profileCard"><div class="profileName" style="font-size:12px">Sesión de demostración</div><div class="companyEmail">La autenticación real se conectará en una fase posterior.</div></div><button class="profileOption">⚙️ Configuración</button><button class="profileOption">🔐 Seguridad</button><button class="profileOption">↗ Cerrar sesión</button></div></div>
+
+<script>
+const DEMO_COMPANIES=[
+{name:'Flight Training Center Colombia',email:'operaciones@flighttraining.co',status:'ACTIVE',plan:'PRO_MONTHLY',billing:'POSTPAID',ends:'18 Sep 2026',id:'FLIGHTRAININGCENTERCOLOMBIA-GMAIL-COM'},
+{name:'Aero Training Demo',email:'admin@aerotraining.demo',status:'TRIAL',plan:'TRIAL',billing:'POSTPAID',ends:'13 Sep 2026',id:'AERO-TRAINING-DEMO'},
+{name:'Academia Ejecutiva',email:'contacto@academia.demo',status:'ACTIVE',plan:'BUSINESS_MONTHLY',billing:'PREPAID',ends:'02 Oct 2026',id:'ACADEMIA-EJECUTIVA'},
+{name:'Centro de Simulación',email:'info@simcenter.demo',status:'EXPIRED',plan:'PRO_MONTHLY',billing:'POSTPAID',ends:'29 Ago 2026',id:'SIM-CENTER-DEMO'}];
+let activeFilter='ALL';const $=(s,r=document)=>r.querySelector(s);const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+function setScreen(name){$$('.screen').forEach(x=>x.classList.toggle('active',x.dataset.screen===name));$$('.navBtn').forEach(x=>x.classList.toggle('active',x.dataset.target===name));window.scrollTo({top:0,behavior:'smooth'})}
+$$('.navBtn').forEach(btn=>btn.addEventListener('click',()=>setScreen(btn.dataset.target)));
+$$('[data-open-module]').forEach(x=>x.addEventListener('click',()=>setScreen(x.dataset.openModule)));
+$$('[data-back-more]').forEach(x=>x.addEventListener('click',()=>setScreen('more')));
+function statusClass(s){return s==='ACTIVE'?'activeStatus':s==='TRIAL'?'trialStatus':'expiredStatus'}
+function renderCompanies(){const q=($('#companySearch')?.value||'').trim().toLowerCase();const rows=DEMO_COMPANIES.filter(c=>(activeFilter==='ALL'||c.status===activeFilter)&&(!q||`${c.name} ${c.email} ${c.id}`.toLowerCase().includes(q)));$('#companyList').innerHTML=rows.length?rows.map(c=>`<article class="companyCard" data-company="${DEMO_COMPANIES.indexOf(c)}"><div class="companyTop"><div><div class="companyName">${c.name}</div><div class="companyEmail">${c.email}</div></div><span class="status ${statusClass(c.status)}">${c.status}</span></div><div class="companyMeta"><div class="metaCell"><div class="metaLabel">Plan</div><div class="metaValue">${c.plan.replace('_MONTHLY','')}</div></div><div class="metaCell"><div class="metaLabel">Vence</div><div class="metaValue">${c.ends}</div></div></div></article>`).join(''):`<div class="readOnlyBanner"><span>⌕</span><span>No hay empresas para este filtro.</span></div>`;$$('.companyCard').forEach(card=>card.addEventListener('click',()=>openCompany(DEMO_COMPANIES[Number(card.dataset.company)])))}
+function openCompany(c){$('#sheetCompanyName').textContent=c.name;$('#sheetCompanyEmail').textContent=c.email;$('#sheetDetailGrid').innerHTML=`<div class="detailRow"><small>Estado</small><b>${c.status}</b></div><div class="detailRow"><small>Plan</small><b>${c.plan}</b></div><div class="detailRow"><small>Facturación</small><b>${c.billing}</b></div><div class="detailRow"><small>Vencimiento</small><b>${c.ends}</b></div><div class="detailRow" style="grid-column:1/-1"><small>Company ID</small><b style="word-break:break-all">${c.id}</b></div>`;openSheet('companySheet')}
+function openSheet(id){const s=document.getElementById(id);s.classList.add('open');s.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+function closeSheet(id){const s=document.getElementById(id);s.classList.remove('open');s.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+$$('[data-close]').forEach(b=>b.addEventListener('click',()=>closeSheet(b.dataset.close)));$$('.sheetBackdrop').forEach(s=>s.addEventListener('click',e=>{if(e.target===s)closeSheet(s.id)}));$('#profileBtn').addEventListener('click',()=>openSheet('profileSheet'));
+$('#companySearch').addEventListener('input',renderCompanies);$$('.chip').forEach(chip=>chip.addEventListener('click',()=>{activeFilter=chip.dataset.filter;$$('.chip').forEach(x=>x.classList.toggle('active',x===chip));renderCompanies()}));
+renderCompanies();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(err => console.warn('SW:', err));
+  });
+}
+</script>
+
+</body>
+</html>
