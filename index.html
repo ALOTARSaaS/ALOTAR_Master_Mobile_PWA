@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="ALOTAR Master" />
 <title>ALOTAR Master</title>
 <link rel="manifest" href="./manifest.webmanifest" />
-<link rel="apple-touch-icon" href="./icons/icon-180.png" />
+<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="application-name" content="ALOTAR Master" />
 
@@ -21,7 +21,7 @@
 }
 *{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;background:radial-gradient(circle at 95% 0,rgba(212,175,55,.11),transparent 26%),radial-gradient(circle at -8% 34%,rgba(56,189,248,.06),transparent 28%),var(--bg);padding-bottom:calc(102px + env(safe-area-inset-bottom))}
 button,input{font:inherit}button{color:inherit;-webkit-tap-highlight-color:transparent}.app{width:min(100%,760px);margin:0 auto;min-height:100vh}.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:linear-gradient(180deg,rgba(7,11,18,.985),rgba(7,11,18,.88));backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,.11)}
-.brand{display:flex;align-items:center;gap:10px;min-width:0}.logo{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;color:#171108;font-weight:1000;background:linear-gradient(145deg,#fff8ca,#e5bf52 42%,#8d6511 80%);border:1px solid #f6df7d;box-shadow:inset 0 1px 0 rgba(255,255,255,.78),0 0 20px rgba(212,175,55,.19)}.brandTitle{font-size:14px;font-weight:950;letter-spacing:.12em;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.brandSub{font-size:9px;color:var(--muted);letter-spacing:.14em;margin-top:2px}.profileBtn{border:1px solid rgba(212,175,55,.28);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.015));border-radius:999px;min-height:40px;padding:0 10px 0 5px;display:flex;align-items:center;gap:8px}.profileAvatar{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#fff7c9,#c69e31);color:#16110a;font-size:11px;font-weight:950}.profileText{text-align:left;line-height:1.05}.profileName{font-size:10px;font-weight:900}.profileRole{font-size:8px;color:var(--muted);margin-top:3px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}.logo{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;overflow:hidden;background:linear-gradient(145deg,rgba(255,248,202,.08),rgba(229,191,82,.04));border:1px solid rgba(246,223,125,.32);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 20px rgba(212,175,55,.16)}.logo img{width:86%;height:86%;object-fit:contain;display:block}.brandTitle{font-size:14px;font-weight:950;letter-spacing:.12em;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.brandSub{font-size:9px;color:var(--muted);letter-spacing:.14em;margin-top:2px}.profileBtn{border:1px solid rgba(212,175,55,.28);background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.015));border-radius:999px;min-height:40px;padding:0 10px 0 5px;display:flex;align-items:center;gap:8px}.profileAvatar{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#fff7c9,#c69e31);color:#16110a;font-size:11px;font-weight:950}.profileText{text-align:left;line-height:1.05}.profileName{font-size:10px;font-weight:900}.profileRole{font-size:8px;color:var(--muted);margin-top:3px}
 .content{padding:14px 14px 8px}.screen{display:none;animation:screenIn .2s ease}.screen.active{display:block}@keyframes screenIn{from{opacity:.35;transform:translateY(6px)}to{opacity:1;transform:none}}
 .hero{position:relative;overflow:hidden;padding:16px 17px;border-radius:20px;background:linear-gradient(145deg,rgba(56,189,248,.075),rgba(212,175,55,.07) 62%,rgba(255,255,255,.015));border:1px solid rgba(212,175,55,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}.hero:after{content:"";position:absolute;right:-40px;top:-45px;width:145px;height:145px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.17),transparent 68%)}.eyebrow{font-size:9px;letter-spacing:.18em;color:var(--gold);font-weight:900;text-transform:uppercase}.heroTop{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.hero h1{font-size:26px;line-height:1.02;margin:6px 0 0;letter-spacing:-.035em}.hero p{margin:7px 0 0;color:var(--muted);font-size:11px;line-height:1.45;max-width:430px}.statusPill{position:relative;z-index:1;flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;padding:7px 9px;border-radius:999px;border:1px solid rgba(34,197,94,.24);background:rgba(34,197,94,.07);color:#a7f3d0;font-size:9px;font-weight:850}.dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 10px rgba(34,197,94,.75)}
 .metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}.metric{min-width:0;padding:12px 10px;border-radius:17px;background:linear-gradient(180deg,rgba(255,255,255,.043),rgba(255,255,255,.012));border:1px solid rgba(212,175,55,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}.metricIcon{font-size:15px;line-height:1}.metricValue{font-size:23px;font-weight:950;line-height:1;margin-top:10px}.metricLabel{font-size:8px;letter-spacing:.055em;color:#aab7c9;font-weight:850;text-transform:uppercase;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -35,11 +35,30 @@ button,input{font:inherit}button{color:inherit;-webkit-tap-highlight-color:trans
 .sheetBackdrop{position:fixed;inset:0;z-index:100;display:none;background:rgba(0,0,0,.68);backdrop-filter:blur(8px);align-items:flex-end;justify-content:center}.sheetBackdrop.open{display:flex}.sheet{width:min(100%,760px);max-height:88vh;overflow:auto;border-radius:25px 25px 0 0;background:#0a111d;border:1px solid rgba(212,175,55,.22);border-bottom:0;padding:11px 15px calc(24px + env(safe-area-inset-bottom));box-shadow:0 -25px 60px rgba(0,0,0,.5)}.handle{width:42px;height:4px;border-radius:999px;background:#4a566a;margin:0 auto 14px}.sheetHead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.closeBtn{width:38px;height:38px;border-radius:13px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04);font-size:14px}.detailGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px}.detailRow{padding:11px;border-radius:13px;background:rgba(255,255,255,.022);border:1px solid rgba(255,255,255,.055)}.detailRow small{display:block;color:var(--muted);font-size:8px;margin-bottom:4px}.detailRow b{font-size:11px}.actionGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}.actionBtn{min-height:46px;border-radius:14px;border:1px solid rgba(212,175,55,.2);background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.014));font-size:10px;font-weight:850}
 .profileSheet .profileCard{padding:13px;border-radius:16px;background:rgba(212,175,55,.055);border:1px solid rgba(212,175,55,.15);margin-bottom:10px}.profileOption{width:100%;min-height:48px;border:0;border-bottom:1px solid rgba(255,255,255,.055);background:transparent;text-align:left;padding:0 4px;font-size:11px}.profileOption:last-child{border-bottom:0}.demoTag{display:inline-flex;align-items:center;gap:5px;color:#fcd34d;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.22);padding:5px 8px;border-radius:999px;font-size:8px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
 @media (max-width:390px){.metrics{grid-template-columns:repeat(2,1fr)}.metric{padding:11px}.profileText{display:none}.profileBtn{padding-right:5px}.heroTop{display:block}.statusPill{margin-top:10px}.bottomNav{width:calc(100% - 14px)}}
-@media (min-width:700px){.content{padding:20px 22px}.companyList{grid-template-columns:repeat(2,1fr)}.menuGrid{grid-template-columns:repeat(4,1fr)}.metrics{gap:10px}}
+@media (min-width:700px){
+  .content{padding:20px 22px}
+  .companyList{grid-template-columns:repeat(2,1fr)}
+  .menuGrid{grid-template-columns:repeat(4,1fr)}
+  .metrics{gap:10px}
+
+  /* ALOTAR branding · desktop/tablet */
+  .logo{
+    width:58px;
+    height:58px;
+    border-radius:16px;
+  }
+  .logo img{
+    width:92%;
+    height:92%;
+  }
+  .brand{gap:13px}
+  .brandTitle{font-size:17px}
+  .brandSub{font-size:10px}
+}
 
 /* =====================================================
-   ALOTAR MASTER MOBILE · V2.1
-   iPhone small-screen legibility + safe-area refinement
+   ALOTAR MASTER MOBILE · V2.3 · BRANDING RESPONSIVE ALOTAR
+   iPhone small-screen legibility + safe-area refinement + logo real
    Visual-only. Sin conexión ni escrituras de producción.
 ===================================================== */
 :root{
@@ -194,7 +213,7 @@ button,
 <body>
 <div class="app">
 <header class="topbar">
-  <div class="brand"><div class="logo">A</div><div><div class="brandTitle">ALOTAR</div><div class="brandSub">MASTER CONTROL</div></div></div>
+  <div class="brand"><div class="logo"><img src="./icons/logo.png" alt="ALOTAR"></div><div><div class="brandTitle">ALOTAR</div><div class="brandSub">MASTER CONTROL</div></div></div>
   <button class="profileBtn" id="profileBtn"><span class="profileAvatar">AO</span><span class="profileText"><span class="profileName">Alberto</span><span class="profileRole">Master Admin</span></span></button>
 </header>
 <main class="content">
